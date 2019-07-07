@@ -1,0 +1,26 @@
+Manipulate[
+ Show[
+  Plot[(-y) (x) + j, {x, 0, 300}, PlotStyle -> {Red}, 
+   PlotRange -> {{0, 300}, {0, 150}}, AxesOrigin -> {0, 0}, 
+   AxesLabel -> {"Quantity", "Price"}, 
+   Ticks -> {{{(j - i)/(z + y), "Quantity Equilibrium"}}, {{  
+       i + (z (j - i)/(z + y)), "Price Equilibrium"}}}],
+  
+  Plot[z x + i, {x, 0, 300}, PlotStyle -> {Green}, 
+   PlotRange -> {{0, 300}, {0, 150}}],
+  
+  Graphics[{Dashed, 
+    Line[{{(j - i)/(z + y), 0}, { (j - i)/(z + y),  
+       i + (z (j - i)/(z + y))}}]}],
+  
+  
+  Graphics[{Dashed, 
+    Line[{{0,  i + (z (j - i)/(z + y))}, {(j - i)/(z + y), 
+       i + (z (j - i)/(z + y))}}]}],
+  
+  Graphics[{PointSize[.035], 
+    Point[{(j - i)/(z + y), i + (z (j - i)/(z + y))}]}]],
+ 
+ {{i, 23, "Supply Shift"}, 46, 0, 2}, {{j, 120, "Demand Shift"}, 90, 
+  150, 2}, {{y, .5, "Demand Slope"}, .9, .2, .01}, {{z, .5, 
+   "Supply Slope"}, .2, .9, .01}]
